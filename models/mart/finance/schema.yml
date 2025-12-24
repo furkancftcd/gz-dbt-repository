@@ -1,0 +1,122 @@
+version: 2
+
+models:
+  - name: finance_days
+    description: "Günlük satış ve operasyonel özet tablosu"
+    columns:
+      - name: date_date
+        description: "Tarih"
+        tests:
+          - not_null
+          - unique
+      - name: operational_margin
+        description: "Operasyonel marj"
+        tests:
+          - not_null
+      - name: quantity
+        description: "Toplam ürün adedi"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Toplam gelir"
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: "Toplam satın alma maliyeti"
+      - name: margin
+        description: "Toplam kar marjı"
+      - name: shipping_fee
+        description: "Müşteriden alınan kargo ücreti"
+      - name: log_cost
+        description: "Depo hazırlık maliyeti"
+      - name: ship_cost
+        description: "Taşıyıcıya ödenen kargo ücreti"
+      - name: nb_transactions
+        description: "Günlük işlem sayısı"
+
+  - name: finance_campaigns_day
+    description: "Günlük finans ve reklam özet tablosu"
+    columns:
+      - name: date_date
+        description: "Tarih"
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        description: "operational_margin - ads_cost"
+        
+      - name: average_basket
+        description: "Her gün için ortalama sepet tutarı"
+        tests:
+          - not_null
+      - name: operational_margin
+        description: "Operasyonel kar"
+        tests:
+          - not_null
+      - name: ads_cost
+        description: "Günlük toplam reklam harcaması"
+        
+      - name: ads_impression
+        description: "Günlük toplam reklam gösterimi"
+        
+      - name: ads_clicks
+        description: "Günlük toplam tıklama sayısı"
+        
+      - name: quantity
+        description: "Satılan toplam ürün adedi"
+        tests:
+          - not_null
+      - name: revenue
+        description: "Günlük toplam gelir"
+        tests:
+          - not_null
+      - name: purchase_cost
+        description: "Toplam satın alma maliyeti"
+      - name: margin
+        description: "Toplam kar marjı"
+      - name: shipping_fee
+        description: "Müşteriden alınan kargo ücreti"
+      - name: log_cost
+        description: "Depo hazırlık maliyeti"
+      - name: ship_cost
+        description: "Taşıyıcıya ödenen kargo ücreti"
+
+  - name: finance_campaigns_month
+    description: "Aylık finans ve reklam özet tablosu"
+    columns:
+      - name: datemonth
+        description: "Ay bilgisi"
+        tests:
+          - not_null
+          - unique
+      - name: ads_margin
+        description: "operational_margin - ads_cost"
+        tests:
+          - not_null
+      - name: average_basket
+        description: "Her ay için ortalama sepet tutarı"
+        tests:
+          - not_null
+      - name: operational_margin
+        description: "Toplam operasyonel marj"
+      - name: ads_cost
+        description: "Toplam reklam harcaması"
+      - name: ads_impression
+        description: "Toplam reklam gösterimi"
+      - name: ads_clicks
+        description: "Toplam tıklama sayısı"
+      - name: quantity
+        description: "Satılan toplam ürün adedi"
+      - name: revenue
+        description: "Toplam gelir"
+      - name: purchase_cost
+        description: "Toplam satın alma maliyeti"
+      - name: margin
+        description: "Toplam kar marjı"
+      - name: shipping_fee
+        description: "Müşteriden alınan kargo ücreti"
+      - name: log_cost
+        description: "Depo hazırlık maliyeti"
+      - name: ship_cost
+        description: "Taşıyıcıya ödenen kargo ücreti"
+
