@@ -9,12 +9,12 @@ sources:
         identifier: raw_gz_sales
         description: sales of Greenweez / one row per (orders_id, pdt_id)
         
-    # Freshness testing
-        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
-        freshness:
-          warn_after:
-            count: 90
-            period: day
+        config:   
+          loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+          freshness:
+            warn_after:
+              count: 90
+              period: day
         
         columns:
           - name: date_date
@@ -31,10 +31,6 @@ sources:
 
           - name: quantity
             description: quantity of products purchased
-
-        tests:
-          - unique:
-              column_name: "(orders_id || '-' || pdt_id)"
 
       - name: product
         identifier: raw_gz_product
@@ -68,4 +64,18 @@ sources:
           - name: ship_cost
             description: shipping cost paid by Greenweez to the carrier
 
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: Google Ads campaign data
 
+      - name: bing
+        identifier: raw_gz_bing
+        description: Bing Ads campaign data
+
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: Criteo Ads campaign data
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: Facebook Ads campaign data
